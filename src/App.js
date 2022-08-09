@@ -7,7 +7,7 @@ function App() {
         My React App
       </h1>
       <h2>
-        Santiago Badino
+        TESTING TESTING TESTING
       </h2>
     </div>
   );
