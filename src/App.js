@@ -1,14 +1,13 @@
 import './App.css';
+import Navbar from './components/Navbar';
+import StatusBox from './components/StatusBox';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        My React App
-      </h1>
-      <h2>
-        TESTING TESTING TESTING
-      </h2>
+      <Navbar />
+      <StatusBox />
     </div>
   );
 }
