@@ -4,17 +4,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Datapoints() {
-  const [fetchDatapointsData, setFetchDatapointsData] = useState(null);
+function Orders() {
+  const [fetchOrdersData, setFetchOrdersData] = useState(null);
 
   useEffect( () => {
     setInterval(() => {
-      fetch("https://status-dashboard-api.herokuapp.com/datapoints")
+      fetch("https://status-dashboard-api.herokuapp.com/orders")
       .then(res => {
         return res.json()
       })
       .then(data => {
-        setFetchDatapointsData(data);
+        setFetchOrdersData(data);
       }) 
     }, 15000) // Amount of MILLISECONDS it takes to refresh. 
   }, [])
@@ -23,21 +23,21 @@ function Datapoints() {
     <Container>
       <Row>
         {
-          fetchDatapointsData && 
+          fetchOrdersData && 
           <Col sm>
           <Card className="mt-5" style={{ width: '18rem', height: '13rem' }}>
             <Card.Body>
               <Card.Title>
-                DATAPOINTS
+                ORDERS
               </Card.Title>
-              <Card.Subtitle className="pt-1 pb-1" style={{ backgroundColor: fetchDatapointsData.success ? "#32CD32" : "#FF0000", color: 'white' }}>
-                {fetchDatapointsData.success ? "Healthy" : "Error"}
+              <Card.Subtitle className="pt-1 pb-1" style={{ backgroundColor: fetchOrdersData.success ? "#32CD32" : "#FF0000", color: 'white' }}>
+                {fetchOrdersData.success ? "Healthy" : "Error"}
               </Card.Subtitle>
               <Card.Text>
-                {fetchDatapointsData.success ? fetchDatapointsData.hostname : "Request failed with status code 503."}
+                {fetchOrdersData.success ? fetchOrdersData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchDatapointsData.success ? fetchDatapointsData.time : "OUTAGE"}
+                {fetchOrdersData.success ? fetchOrdersData.time : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>
@@ -48,4 +48,4 @@ function Datapoints() {
   );
 }
 
-export default Datapoints;
+export default Orders;

@@ -34,10 +34,10 @@ function Customers() {
                 {fetchCustomersData.success ? "Healthy" : "Error"}
               </Card.Subtitle>
               <Card.Text>
-                {fetchCustomersData.hostname}
+                {fetchCustomersData.success ? fetchCustomersData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchCustomersData.time}
+                {fetchCustomersData.success ? fetchCustomersData.time : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>

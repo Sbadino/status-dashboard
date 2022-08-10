@@ -34,10 +34,10 @@ function Documents() {
                 {fetchDocumentsData.success ? "Healthy" : "Error"}
               </Card.Subtitle>
               <Card.Text>
-                {fetchDocumentsData.hostname}
+                {fetchDocumentsData.success ? fetchDocumentsData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchDocumentsData.time}
+                {fetchDocumentsData.success ? fetchDocumentsData.time : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>
