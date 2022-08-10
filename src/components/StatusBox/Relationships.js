@@ -3,9 +3,13 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import moment from "moment";
 
 function Relationships() {
   const [fetchRelationshipsData, setFetchRelationshipsData] = useState(null);
+
+  const time = moment();
+  const timeFormat = time.format('h:m:s')
 
   useEffect( () => {
     setInterval(() => {
@@ -37,7 +41,7 @@ function Relationships() {
                 {fetchRelationshipsData.success ? fetchRelationshipsData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchRelationshipsData.success ? fetchRelationshipsData.time : "OUTAGE"}
+                {fetchRelationshipsData.success ? timeFormat : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>

@@ -3,9 +3,13 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import moment from "moment";
 
 function Forms() {
   const [fetchFormsData, setFetchFormsData] = useState(null);
+
+  const time = moment();
+  const timeFormat = time.format('h:m:s')
 
   useEffect( () => {
     setInterval(() => {
@@ -34,10 +38,10 @@ function Forms() {
                 {fetchFormsData.success ? "Healthy" : "Error"}
               </Card.Subtitle>
               <Card.Text>
-                {fetchFormsData.hostname}
+                {fetchFormsData.success ? fetchFormsData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchFormsData.time}
+                {fetchFormsData.success ? timeFormat : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>

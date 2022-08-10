@@ -3,9 +3,13 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import moment from "moment";
 
 function Workflows() {
   const [fetchWorkflowsData, setFetchWorkflowsData] = useState(null);
+
+  const time = moment();
+  const timeFormat = time.format('h:m:s')
 
   useEffect( () => {
     setInterval(() => {
@@ -37,7 +41,7 @@ function Workflows() {
                 {fetchWorkflowsData.success ? fetchWorkflowsData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchWorkflowsData.success ? fetchWorkflowsData.time : "OUTAGE"}
+                {fetchWorkflowsData.success ? timeFormat : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>

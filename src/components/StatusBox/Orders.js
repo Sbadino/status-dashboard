@@ -3,9 +3,13 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import moment from "moment";
 
 function Orders() {
   const [fetchOrdersData, setFetchOrdersData] = useState(null);
+
+  const time = moment();
+  const timeFormat = time.format('h:m:s')
 
   useEffect( () => {
     setInterval(() => {
@@ -37,7 +41,7 @@ function Orders() {
                 {fetchOrdersData.success ? fetchOrdersData.hostname : "Request failed with status code 503."}
               </Card.Text>
               <Card.Text >
-                {fetchOrdersData.success ? fetchOrdersData.time : "OUTAGE"}
+                {fetchOrdersData.success ? timeFormat : "OUTAGE"}
               </Card.Text>
             </Card.Body>
           </Card>
