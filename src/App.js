@@ -28,6 +28,9 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <p>
+        Status takes 15 seconds to load. Thank you for your patience.
+      </p>
       <Container>
         <Row>
           <Col sm>
