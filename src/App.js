@@ -11,6 +11,12 @@ import Media from './components/StatusBox/Media';
 import Messages from './components/StatusBox/Messages';
 import Namespaces from './components/StatusBox/Namespaces';
 import Orders from './components/StatusBox/Orders';
+import Patients from './components/StatusBox/Patients';
+import Relationships from './components/StatusBox/Relationships';
+import Rules from './components/StatusBox/Rules';
+import Templates from './components/StatusBox/Templates';
+import Users from './components/StatusBox/Users';
+import Workflows from './components/StatusBox/Workflows';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,22 +67,22 @@ function App() {
             <Orders />
           </Col>
           <Col sm>
-            <Accounts />
+            <Patients />
           </Col>
           <Col sm>
-            <Accounts />
+            <Relationships />
           </Col>
           <Col sm>
-            <Accounts />
+            <Rules />
           </Col>
           <Col sm>
-            <Accounts />
+            <Templates />
           </Col>
           <Col sm>
-            <Accounts />
+            <Users />
           </Col>
           <Col sm>
-            <Accounts />
+            <Workflows />
           </Col>
         </Row>
       </Container>
